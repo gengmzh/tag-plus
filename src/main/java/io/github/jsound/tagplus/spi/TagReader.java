@@ -4,6 +4,8 @@
 package io.github.jsound.tagplus.spi;
 
 import io.github.jsound.tagplus.bean.Tag;
+import io.github.jsound.tagplus.bean.TagFrame;
+import io.github.jsound.tagplus.bean.TagHeader;
 
 import java.io.File;
 
@@ -13,7 +15,7 @@ import java.io.File;
  * @author Myron Geng
  * @since 0.0.1
  */
-public abstract class TagReader {
+public abstract class TagReader<T extends Tag<?, ?>> {
 
 	protected File audioFile;
 

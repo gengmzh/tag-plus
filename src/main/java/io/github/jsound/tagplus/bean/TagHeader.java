@@ -27,7 +27,7 @@ public abstract class TagHeader implements Serializable/* , Iterable<KeyVal<Stri
 	public abstract String getType();
 
 	/**
-	 * @return identifier of the tag, like ID3v2.2, ID3v2.3 etc.
+	 * @return identifier of the tag, like ID3v1, ID3v2.2, ID3v2.3 etc.
 	 */
 	public abstract String getIdentifier();
 

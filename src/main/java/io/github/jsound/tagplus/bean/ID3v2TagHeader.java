@@ -9,7 +9,7 @@ package io.github.jsound.tagplus.bean;
  * @author Myron Geng
  * @since 0.1.0
  */
-public class ID3v2Header extends TagHeader {
+public class ID3v2TagHeader extends TagHeader {
 
 	private static final long serialVersionUID = 664245993523840449L;
 
@@ -28,7 +28,10 @@ public class ID3v2Header extends TagHeader {
 	private int extPaddingSize;
 	private int extCRC32Data;
 
-	public ID3v2Header() {
+	/**
+	 * Create new {@link ID3v2TagHeader}
+	 */
+	public ID3v2TagHeader() {
 	}
 
 	@Override
@@ -60,7 +63,7 @@ public class ID3v2Header extends TagHeader {
 	 * @param id
 	 *            the id to set
 	 */
-	public ID3v2Header setId(String id) {
+	public ID3v2TagHeader setId(String id) {
 		this.id = id;
 		return this;
 	}
@@ -76,7 +79,7 @@ public class ID3v2Header extends TagHeader {
 	 * @param version
 	 *            the version to set
 	 */
-	public ID3v2Header setVersion(short version) {
+	public ID3v2TagHeader setVersion(short version) {
 		this.version = version;
 		return this;
 	}
@@ -92,7 +95,7 @@ public class ID3v2Header extends TagHeader {
 	 * @param flag
 	 *            the flag to set
 	 */
-	public ID3v2Header setFlag(byte flag) {
+	public ID3v2TagHeader setFlag(byte flag) {
 		this.flag = flag;
 		return this;
 	}
@@ -109,7 +112,7 @@ public class ID3v2Header extends TagHeader {
 	 * @param size
 	 *            the size to set
 	 */
-	public ID3v2Header setSize(int size) {
+	public ID3v2TagHeader setSize(int size) {
 		this.size = size;
 		return this;
 	}
@@ -160,7 +163,7 @@ public class ID3v2Header extends TagHeader {
 	 * @param extSize
 	 *            the extSize to set
 	 */
-	public ID3v2Header setExtSize(int extSize) {
+	public ID3v2TagHeader setExtSize(int extSize) {
 		this.extSize = extSize;
 		return this;
 	}
@@ -176,7 +179,7 @@ public class ID3v2Header extends TagHeader {
 	 * @param extFlag
 	 *            the extFlag to set
 	 */
-	public ID3v2Header setExtFlag(short extFlag) {
+	public ID3v2TagHeader setExtFlag(short extFlag) {
 		this.extFlag = extFlag;
 		return this;
 	}
@@ -192,7 +195,7 @@ public class ID3v2Header extends TagHeader {
 	 * @param extPaddingSize
 	 *            the extPaddingSize to set
 	 */
-	public ID3v2Header setExtPaddingSize(int extPaddingSize) {
+	public ID3v2TagHeader setExtPaddingSize(int extPaddingSize) {
 		this.extPaddingSize = extPaddingSize;
 		return this;
 	}
@@ -215,7 +218,7 @@ public class ID3v2Header extends TagHeader {
 	 * @param extCRC32Data
 	 *            the extCRC32Data to set
 	 */
-	public ID3v2Header setExtCRC32Data(int extCRC32Data) {
+	public ID3v2TagHeader setExtCRC32Data(int extCRC32Data) {
 		this.extCRC32Data = extCRC32Data;
 		return this;
 	}
