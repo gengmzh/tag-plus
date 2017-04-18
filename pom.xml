@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.jsound</groupId>
 	<artifactId>tag-plus</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<name>tag-plus</name>
 	<description>a pure java library for reading and editing audio tags</description>
 
