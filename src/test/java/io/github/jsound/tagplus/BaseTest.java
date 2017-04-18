@@ -25,6 +25,7 @@ public abstract class BaseTest {
 		};
 
 		test.debug("test log: {}", "slf4j with logback");
+		test.debug("0x0300: {}", (0x30 << 4));
 	}
 
 }
