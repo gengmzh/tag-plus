@@ -128,6 +128,7 @@ public class ID3v2TagHeaderReader {
 			if (num < 4) {
 				throw new TagException("CRC-32 data is missing, while it's expected");
 			}
+			buffer.rewind();
 			CRC = buffer.getInt();
 		}
 

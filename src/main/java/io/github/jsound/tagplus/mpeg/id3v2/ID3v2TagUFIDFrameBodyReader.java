@@ -15,36 +15,26 @@ import java.nio.charset.Charset;
  * @author Myron Geng
  * @since 0.1.0
  */
-class ID3v2TagTextualFrameBodyReader extends ID3v2TagFrameBodyReader<ID3v2TagFrame.TextualFrameBody, String> {
+class ID3v2TagUFIDFrameBodyReader extends ID3v2TagFrameBodyReader<ID3v2TagFrame.UFIDFrameBody, byte[]> {
 
 	@Override
 	public boolean isSupported(String frameId) {
 		if (frameId == null) {
 			throw new NullPointerException("frameId is null");
 		}
-		// Header for 'Text information frame', ID: "T000" - "TZZZ", excluding "TXXX"
-		if (frameId.charAt(0) == 'T' && !"TXXX".equals(frameId)) {
-			return true;
-		}
-		return false;
+		return "UFID".equals(frameId);
 	}
 
-	/**
-	 * @return Text encoding of this textual frame.
-	 */
 	@Override
 	Charset getCharset(ByteBuffer data) {
-		// TODO decompress, decrypt
-		// Text encoding
-		data.mark();
-		byte encoding = data.get();
-		data.reset();
-		return Charsets.getCharset((short) encoding);
+		return Charsets.CHARSET_ISO_8859_1;
 	}
 
 	@Override
-	public ID3v2TagFrame.TextualFrameBody readFrameBody(ByteBuffer data, int size) {
-		// TODO decompress, decrypt
+	public ID3v2TagFrame.UFIDFrameBody readFrameBody(ByteBuffer data, int size) {
+		// Owner identifier
+		String owner = readTerminatedString(data, size);
+
 		// Text encoding
 		byte encoding = data.get();
 		// Information

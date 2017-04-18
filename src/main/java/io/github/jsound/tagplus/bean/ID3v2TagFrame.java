@@ -212,12 +212,59 @@ public class ID3v2TagFrame extends TagFrame {
 	/**
 	 * Abstract ID3v2 Frame body
 	 */
-	public static abstract class FrameBody<T> {
+	public static interface FrameBody<T> {
 
 		/**
-		 * @return
+		 * @return the frame body
 		 */
-		abstract T getBody();
+		T getBody();
+
+	}
+
+	public static class UFIDFrameBody implements FrameBody<byte[]> {
+
+		private String owner;
+		private byte[] identifier;
+
+		/**
+		 * @return the unique file identifier.
+		 */
+		@Override
+		public byte[] getBody() {
+			return identifier;
+		}
+
+		/**
+		 * @return the owner
+		 */
+		public String getOwner() {
+			return owner;
+		}
+
+		/**
+		 * @param owner
+		 *            the owner to set
+		 */
+		public UFIDFrameBody setOwner(String owner) {
+			this.owner = owner;
+			return this;
+		}
+
+		/**
+		 * @return the identifier
+		 */
+		public byte[] getIdentifier() {
+			return identifier;
+		}
+
+		/**
+		 * @param identifier
+		 *            the identifier to set
+		 */
+		public UFIDFrameBody setIdentifier(byte[] identifier) {
+			this.identifier = identifier;
+			return this;
+		}
 
 	}
 
@@ -227,7 +274,7 @@ public class ID3v2TagFrame extends TagFrame {
 	 * @author Myron Geng
 	 * @since 0.1.0
 	 */
-	public static class TextualFrameBody extends FrameBody<String> {
+	public static class TextualFrameBody implements FrameBody<String> {
 
 		private byte encoding;
 		private String content;
@@ -235,8 +282,11 @@ public class ID3v2TagFrame extends TagFrame {
 		public TextualFrameBody() {
 		}
 
+		/**
+		 * @return the textual frame body, such as TALB, TPE1, TIT2, TYER etc.
+		 */
 		@Override
-		String getBody() {
+		public String getBody() {
 			return content;
 		}
 

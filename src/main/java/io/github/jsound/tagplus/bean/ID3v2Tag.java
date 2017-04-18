@@ -20,6 +20,12 @@ public class ID3v2Tag extends Tag<ID3v2TagHeader, ID3v2TagFrame> {
 	 * @since 0.1.0
 	 */
 	public static enum FRAME_IDENTIFIER {
+
+		/**
+		 * Unique file identifier
+		 */
+		UFID,
+		//
 		TPE1;
 	};
 
